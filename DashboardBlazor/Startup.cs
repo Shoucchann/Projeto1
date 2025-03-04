@@ -2,7 +2,7 @@ public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddHttpClient<TaxaSelicService>(); // Registrar o serviço
+        services.AddHttpClient<TaxaSelicService>(); 
         services.AddRazorPages();
     }
 }

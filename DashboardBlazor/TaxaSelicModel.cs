@@ -14,7 +14,7 @@ public class TaxaSelicModel : PageModel
 
     public async Task OnGet()
     {
-        // Chama o serviço para obter os dados
+        
         TaxaSelicData = await _taxaSelicService.ObterTaxaSelic();
     }
 }
