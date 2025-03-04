@@ -1,0 +1,33 @@
+@page "/taxaSelic"
+@inject HttpClient Http
+
+<h3>Taxa Selic</h3>
+
+@if (TaxaSelicData != null)
+{
+    <img src="http://127.0.0.1:8000/taxaSelic" alt="Gráfico da Taxa Selic" class="img" />
+}
+else
+{
+    <p>Carregando gráfico da Taxa Selic...</p>
+}
+
+@code {
+    // Propriedade para armazenar os dados da taxa
+    public string TaxaSelicData { get; set; }
+
+    // Método chamado na inicialização do componente
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // Exemplo de chamada à API para obter dados (ajuste conforme necessário)
+            TaxaSelicData = await Http.GetStringAsync("http://127.0.0.1:8000/taxaSelic");
+        }
+        catch (Exception ex)
+        {
+            // Tratamento de erro
+            Console.Error.WriteLine($"Erro ao carregar dados da Taxa Selic: {ex.Message}");
+        }
+    }
+}
